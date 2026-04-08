@@ -1,0 +1,14 @@
+@theme {
+  /* ── Colors (defaults from Direction 1: Red Engine) ────── */
+  --color-brand-primary:   #C62828;
+  --color-brand-secondary: #1E1E2A;
+  --color-brand-accent:    #F5F5F0;
+  --color-brand-bg:        #FAFAF7;
+  --color-brand-surface:   #F0F0EB;
+  --color-brand-text:      #1A1A1A;
+  --color-brand-muted:     #6B6B6B;
+
+  /* ── Typography (defaults from Direction 1) ── */
+  --font-heading: 'Archivo Variable', Impact, sans-serif;
+  --font-body:    'Manrope Variable', system-ui, sans-serif;
+}

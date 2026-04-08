@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-3/Nav.astro';
+import Hero from '../components/direction-3/Hero.astro';
+import Services from '../components/direction-3/Services.astro';
+import Stats from '../components/direction-3/Stats.astro';
+import Testimonials from '../components/direction-3/Testimonials.astro';
+import Gallery from '../components/direction-3/Gallery.astro';
+import FAQ from '../components/direction-3/FAQ.astro';
+import Contact from '../components/direction-3/Contact.astro';
+import CTA from '../components/direction-3/CTA.astro';
+import Footer from '../components/direction-3/Footer.astro';
+---
+<Layout title="Blueprint — KJP Plumbing & Heating">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #2563EB;
+      --color-brand-secondary: #1A1A2E;
+      --color-brand-accent:    #84CC16;
+      --color-brand-bg:        #FFFFFF;
+      --color-brand-surface:   #F8FAFC;
+      --color-brand-text:      #0F172A;
+      --color-brand-muted:     #64748B;
+      --font-heading: 'Space Grotesk Variable', system-ui, sans-serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+    }
+
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+
+    /* Monospace utility */
+    .font-mono {
+      font-family: 'Space Mono', 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    }
+  </style>
+
+  <Nav />
+  <Hero />
+  <Services />
+  <Stats />
+  <Testimonials />
+  <Gallery />
+  <FAQ />
+  <Contact />
+  <CTA />
+  <Footer />
+
+  <!-- Mobile sticky CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-xl border-t border-brand-primary/10 px-4 py-3 flex items-center gap-3">
+    <a href="tel:02381112994" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold py-3 rounded-full text-sm">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      Call Now
+    </a>
+    <a href="#contact" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-accent text-brand-secondary font-bold py-3 rounded-full text-sm">
+      Get Quote
+    </a>
+  </div>
+</Layout>

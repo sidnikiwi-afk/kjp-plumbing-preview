@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-2/Nav.astro';
+import Hero from '../components/direction-2/Hero.astro';
+import Services from '../components/direction-2/Services.astro';
+import Stats from '../components/direction-2/Stats.astro';
+import Testimonials from '../components/direction-2/Testimonials.astro';
+import Gallery from '../components/direction-2/Gallery.astro';
+import Faqs from '../components/direction-2/Faqs.astro';
+import Contact from '../components/direction-2/Contact.astro';
+import Footer from '../components/direction-2/Footer.astro';
+---
+
+<Layout title="KJP Plumbing & Heating — Southampton's Trusted Powerflush Specialists">
+  <Nav />
+  <Hero />
+  <Services />
+  <Stats />
+  <Testimonials />
+  <Gallery />
+  <Faqs />
+  <Contact />
+  <Footer />
+
+  <style is:global>
+    :root {
+      --color-brand-primary:   #0F1923;
+      --color-brand-secondary: #C67D4A;
+      --color-brand-accent:    #5B7C99;
+      --color-brand-bg:        #FAF8F5;
+      --color-brand-surface:   #F0EDE8;
+      --color-brand-text:      #1A1A1A;
+      --color-brand-muted:     #7A7A7A;
+      --font-heading: 'Literata Variable', Georgia, serif;
+      --font-body:    'DM Sans Variable', system-ui, sans-serif;
+    }
+
+    /* Linen texture on cream sections */
+    .cream-texture {
+      background-color: var(--color-brand-bg);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* Copper pipe elbow SVG motif */
+    .pipe-elbow {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      color: var(--color-brand-secondary);
+    }
+
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+
+    /* Scroll-triggered animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+
+  <script>
+    // Intersection Observer for scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar shrink on scroll
+    const nav = document.getElementById('copper-nav');
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+          nav.classList.add('nav-scrolled');
+        } else {
+          nav.classList.remove('nav-scrolled');
+        }
+      });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item?.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item?.classList.add('open');
+      });
+    });
+
+    // Testimonial carousel
+    const track = document.getElementById('testimonial-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    if (track && prevBtn && nextBtn) {
+      const scrollAmount = 380;
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  </script>
+</Layout>

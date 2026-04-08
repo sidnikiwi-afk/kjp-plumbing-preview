@@ -1,0 +1,43 @@
+---
+const stats = [
+  { number: "25+", label: "Years Experience", suffix: "" },
+  { number: "100%", label: "Specialists In Our Field", suffix: "" },
+  { number: "24/7", label: "Affordable & Reliable", suffix: "" },
+];
+---
+
+<section class="cream-texture relative py-20 lg:py-28 overflow-hidden">
+  <!-- Decorative horizontal pipe -->
+  <svg class="absolute top-1/2 left-0 w-full h-px text-brand-secondary/10 hidden lg:block" viewBox="0 0 1440 2" fill="none">
+    <line x1="0" y1="1" x2="1440" y2="1" stroke="currentColor" stroke-width="2" stroke-dasharray="8 12" />
+  </svg>
+
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 text-center">
+      {stats.map((stat, i) => (
+        <div class="relative reveal" style={`transition-delay: ${i * 150}ms`}>
+          <!-- Pipe elbow accent above number -->
+          <svg class="w-6 h-6 text-brand-secondary/30 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M4 4 L4 14 Q4 20 10 20 L20 20" />
+          </svg>
+
+          <div class="stat-number font-heading text-brand-primary tracking-[-0.03em]" style="font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1;">
+            {stat.number}
+          </div>
+          <p class="mt-3 font-body text-brand-muted text-sm tracking-wide uppercase">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .stat-number {
+    background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

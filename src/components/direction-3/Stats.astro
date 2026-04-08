@@ -1,0 +1,48 @@
+---
+const stats = [
+  { value: '25+', label: 'Years Experience', suffix: '' },
+  { value: '100', label: 'Specialists In Our Field', suffix: '%' },
+  { value: '5', label: 'UK Enterprise Awards', suffix: 'yr' },
+];
+---
+<section class="relative py-20 md:py-24 bg-white overflow-hidden">
+  <!-- Blueprint line accent -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/10 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/10 to-transparent"></div>
+
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center">
+      {stats.map((s, i) => (
+        <div class="stat-item" style={`--stat-delay: ${i * 0.15}s`}>
+          <div class="font-mono font-bold text-brand-primary leading-none mb-3" style="font-size: clamp(3rem, 6vw, 4.5rem);">
+            {s.value}<span class="text-brand-accent text-[0.5em]">{s.suffix}</span>
+          </div>
+          <div class="font-heading text-sm tracking-[0.15em] uppercase text-brand-muted font-medium">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stat-item {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .stat-item.visible {
+    animation: stat-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--stat-delay);
+  }
+  @keyframes stat-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    60% { transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+</style>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.stat-item').forEach(el => obs.observe(el));
+</script>

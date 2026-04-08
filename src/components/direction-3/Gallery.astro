@@ -1,0 +1,51 @@
+---
+const images = [
+  { src: '/images/redesign/image-10.jpg', alt: 'Modern bathroom design and installations in Southampton' },
+  { src: '/images/redesign/image-11.jpg', alt: 'Beautiful bathroom installation by bathroom fitters in Southampton' },
+  { src: '/images/redesign/image-12.jpg', alt: 'Lovely shower room install by our bathroom fitter guys' },
+];
+---
+<section class="relative py-24 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-px w-8 bg-brand-primary"></div>
+      <span class="font-mono text-xs tracking-[0.2em] uppercase text-brand-primary font-medium">Our Work</span>
+    </div>
+    <h2 class="font-heading font-bold text-brand-text tracking-tight leading-tight mb-12" style="font-size: clamp(2rem, 4vw, 3rem);">Recent Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {images.map((img, i) => (
+        <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-surface" style={`--g-delay: ${i * 0.1}s`}>
+          <img src={img.src} alt={img.alt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <!-- Blueprint overlay on hover -->
+          <div class="absolute inset-0 bg-brand-primary/0 group-hover:bg-brand-primary/10 transition-colors duration-300 pointer-events-none"></div>
+          <!-- Corner marks -->
+          <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/0 group-hover:border-white/60 transition-all duration-300 rounded-tl-sm"></div>
+          <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-white/0 group-hover:border-white/60 transition-all duration-300 rounded-br-sm"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-item {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .gallery-item.visible {
+    animation: gal-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--g-delay);
+  }
+  @keyframes gal-in {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.gallery-item').forEach(el => obs.observe(el));
+</script>

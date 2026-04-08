@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+const directions = [
+  { n: 1, name: 'Red Engine', slug: 'direction-1-red-engine', description: 'Bold, industrial, high-energy. Full-width hero with plumber image bleeding edge-to-edge. Sharp edges, massive stats, sticky emergency CTA.' },
+  { n: 2, name: 'Copper Pipe', slug: 'direction-2-copper-pipe', description: 'Warm and editorial. Split-screen hero, alternating cream/navy sections, copper accents that reference the trade. Serif headings for authority.' },
+  { n: 3, name: 'Blueprint', slug: 'direction-3-blueprint', description: 'Clean, modern, tech-forward. Typographic hero with grid-line background. Pill buttons, electric blue with lime accents. Feels fast and efficient.' },
+];
+---
+<Layout title="KJP Plumbing — Homepage Concepts">
+  <main style="max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; font-family: var(--font-body);">
+    <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem;">Your Homepage Concepts</h1>
+    <p style="color: #666; margin-bottom: 3rem;">Click each direction to preview it. Scroll through fully before deciding.</p>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      {directions.map(d => (
+        <a href={`/${d.slug}`} style="display: block; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.15s;">
+          <div style="font-size: 0.75rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">Direction {d.n}</div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">{d.name}</div>
+          <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{d.description}</div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

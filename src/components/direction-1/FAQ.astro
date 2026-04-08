@@ -1,0 +1,90 @@
+---
+/**
+ * FAQ — Accordion with sharp edges, red accent on active.
+ */
+const faqs = [
+  { q: "How Far Do You Travel?", a: "We travel around the whole of the Southampton postcodes. Further afield for specialist works only." },
+  { q: "What Are Your Prices?", a: "Prices vary! But on average its around £75 per hour for Plumbing, £90 Internal Drainage & £120 External Drainage. All within hours." },
+  { q: "How Do I Pay?", a: "Cash, visa, mastercard, debit and credit and bank transfer." },
+  { q: "Do you offer emergency plumbing services?", a: "Yes - we provide 24/7 emergency plumbing in Southampton and surrounding areas." },
+  { q: "What is powerflushing and do I need it?", a: "Powerflushing removes sludge, rust, and debris from your central heating system. Improves efficiency, reduces energy bills, extends boiler life." },
+  { q: "Do you offer free quotes?", a: "Yes - free, no-obligation quotes for all plumbing and heating services." },
+];
+---
+
+<section id="faq" class="relative bg-brand-bg py-20 sm:py-28">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-8 h-0.5 bg-brand-primary"></div>
+        <span class="text-brand-primary font-body font-bold text-xs tracking-[0.25em] uppercase">FAQs</span>
+        <div class="w-8 h-0.5 bg-brand-primary"></div>
+      </div>
+      <h2 class="font-heading font-black text-brand-text uppercase leading-[0.95] tracking-tight" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+        Common Questions
+      </h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <div class="faq-item border border-brand-text/10 bg-white scroll-reveal" style={`animation-delay: ${i * 0.08}s;`}>
+          <button
+            class="faq-trigger w-full flex items-center justify-between p-5 sm:p-6 text-left group"
+            aria-expanded="false"
+          >
+            <span class="font-heading font-black text-brand-text text-base sm:text-lg uppercase tracking-wide pr-4">{faq.q}</span>
+            <span class="faq-icon flex-shrink-0 w-8 h-8 bg-brand-primary/10 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-primary group-hover:text-white text-brand-primary">
+              <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-content hidden">
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6 border-t border-brand-primary/20">
+              <p class="text-brand-muted font-body text-base leading-relaxed pt-4">{faq.a}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item.active {
+    border-color: var(--color-brand-primary);
+    border-left-width: 4px;
+  }
+  .faq-item.active .faq-icon {
+    background: var(--color-brand-primary);
+    color: white;
+  }
+  .faq-item.active .faq-icon svg {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = item?.querySelector('.faq-content') as HTMLElement | null;
+      const isOpen = item?.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+        const c = el.querySelector('.faq-content') as HTMLElement | null;
+        if (c) c.classList.add('hidden');
+        el.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (if was closed)
+      if (!isOpen && content) {
+        item?.classList.add('active');
+        content.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

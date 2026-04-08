@@ -1,0 +1,77 @@
+---
+const services = [
+  { title: "Bathroom Installations", desc: "Complete bathroom design, fitting and renovation. From luxury suites to compact ensuites.", icon: "/images/redesign/image-02.png" },
+  { title: "Power Flushing", desc: "Specialist powerflushing to restore your heating system. Removes sludge, improves efficiency.", icon: "/images/redesign/image-03.png" },
+  { title: "Plumbing & Heating", desc: "Full plumbing and central heating services. Repairs, installations and maintenance.", icon: "/images/redesign/image-04.png" },
+  { title: "Hot Water & Heating", desc: "Hot water cylinder repairs, unvented systems, boiler work and heating solutions.", icon: "/images/redesign/image-05.png" },
+  { title: "Emergency Plumbing", desc: "24/7 emergency plumber in Southampton. Burst pipes, leaks, blockages - we're on call.", icon: "/images/redesign/image-06.png", emergency: true },
+  { title: "Tiling", desc: "Professional wall and floor tiling for bathrooms, kitchens and wet rooms.", icon: null },
+];
+---
+
+<section id="services" class="bg-brand-primary relative py-24 lg:py-32 overflow-hidden">
+  <!-- Decorative pipe running vertically on right side -->
+  <svg class="absolute top-0 right-[8%] w-px h-full text-brand-secondary/10 hidden lg:block" viewBox="0 0 2 800" fill="none">
+    <line x1="1" y1="0" x2="1" y2="800" stroke="currentColor" stroke-width="2" stroke-dasharray="6 8" />
+  </svg>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <svg class="w-5 h-5 text-brand-secondary/60 rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M4 4 L4 14 Q4 20 10 20 L20 20" />
+        </svg>
+        <span class="text-sm font-body tracking-[0.2em] uppercase text-brand-secondary/80">What We Do</span>
+        <svg class="w-5 h-5 text-brand-secondary/60 -rotate-90 -scale-x-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M4 4 L4 14 Q4 20 10 20 L20 20" />
+        </svg>
+      </div>
+      <h2 class="font-heading text-white leading-tight tracking-[-0.01em]" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;">
+        Our <em class="text-brand-secondary not-italic" style="font-style: italic; font-weight: 400;">Services</em>
+      </h2>
+    </div>
+
+    <!-- Service cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, i) => (
+        <div class={`service-card group relative bg-white/[0.06] backdrop-blur-sm rounded-2xl p-7 border border-white/[0.08] transition-all duration-500 hover:bg-white/[0.1] hover:border-brand-secondary/30 hover:shadow-xl hover:shadow-brand-secondary/5 reveal ${service.emergency ? 'lg:border-brand-secondary/20' : ''}`} style={`transition-delay: ${i * 80}ms`}>
+          {/* Pipe elbow corner accent */}
+          <svg class="absolute top-4 right-4 w-8 h-8 text-brand-secondary/10 transition-colors duration-500 group-hover:text-brand-secondary/30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M24 8 L24 18 Q24 24 18 24 L8 24" />
+          </svg>
+
+          {service.icon && (
+            <div class="w-14 h-14 rounded-xl overflow-hidden mb-5 border border-white/10 transition-transform duration-500 group-hover:scale-105">
+              <img src={service.icon} alt={service.title} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          )}
+          {!service.icon && (
+            <div class="w-14 h-14 rounded-xl mb-5 border border-white/10 flex items-center justify-center bg-brand-secondary/10">
+              <svg class="w-7 h-7 text-brand-secondary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+              </svg>
+            </div>
+          )}
+
+          <h3 class="font-heading text-white text-xl font-semibold mb-2">{service.title}</h3>
+          <p class="font-body text-white/60 text-sm leading-relaxed">{service.desc}</p>
+
+          {service.emergency && (
+            <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-secondary/15 border border-brand-secondary/25">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-secondary animate-pulse"></span>
+              <span class="text-xs font-body text-brand-secondary font-medium">24/7 Available</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- SVG curve transition -->
+  <div class="absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 50" fill="none" preserveAspectRatio="none" class="w-full h-[50px]">
+      <path d="M0 50 L0 30 Q720 0 1440 30 L1440 50 Z" fill="#FAF8F5"/>
+    </svg>
+  </div>
+</section>

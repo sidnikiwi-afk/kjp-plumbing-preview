@@ -1,0 +1,50 @@
+---
+const photos = [
+  { src: "/images/redesign/image-10.jpg", alt: "Modern bathroom design and installations in Southampton" },
+  { src: "/images/redesign/image-11.jpg", alt: "Beautiful bathroom installation by bathroom fitters in Southampton" },
+  { src: "/images/redesign/image-12.jpg", alt: "Lovely shower room install by our bathroom fitter guys" },
+];
+---
+
+<section id="gallery" class="cream-texture relative py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-14 reveal">
+      <span class="text-sm font-body tracking-[0.2em] uppercase text-brand-secondary mb-4 block">Our Work</span>
+      <h2 class="font-heading text-brand-primary leading-tight tracking-[-0.01em]" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;">
+        Bathroom <em class="text-brand-secondary not-italic" style="font-style: italic; font-weight: 400;">Portfolio</em>
+      </h2>
+    </div>
+
+    <!-- Gallery grid - asymmetric / grid-breaking -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+      <!-- Large image - overlaps boundary -->
+      <div class="md:col-span-7 reveal-left relative">
+        <div class="rounded-2xl overflow-hidden shadow-xl shadow-brand-primary/8 group">
+          <img src={photos[0].src} alt={photos[0].alt} class="w-full h-[350px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        </div>
+        <!-- Overlapping pipe corner decoration -->
+        <svg class="absolute -bottom-4 -right-4 w-12 h-12 text-brand-secondary/20 z-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M40 8 L40 28 Q40 40 28 40 L8 40" />
+        </svg>
+      </div>
+
+      <!-- Stacked images on right - offset vertically -->
+      <div class="md:col-span-5 flex flex-col gap-5 md:mt-12">
+        <div class="reveal-right rounded-2xl overflow-hidden shadow-lg shadow-brand-primary/6 group" style="transition-delay: 150ms">
+          <img src={photos[1].src} alt={photos[1].alt} class="w-full h-[220px] md:h-[240px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        </div>
+        <div class="reveal-right rounded-2xl overflow-hidden shadow-lg shadow-brand-primary/6 group relative" style="transition-delay: 300ms">
+          <img src={photos[2].src} alt={photos[2].alt} class="w-full h-[220px] md:h-[240px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <!-- Floating CTA over last image -->
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <a href="#contact" class="text-white font-body text-sm font-medium flex items-center gap-2">
+              Get a free quote
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

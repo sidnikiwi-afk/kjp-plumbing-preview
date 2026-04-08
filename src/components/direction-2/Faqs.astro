@@ -1,0 +1,85 @@
+---
+const faqs = [
+  { q: "How Far Do You Travel?", a: "We travel around the whole of the Southampton postcodes. Further afield for specialist works only." },
+  { q: "What Are Your Prices?", a: "Around £75/hr Plumbing, £90 Internal Drainage, £120 External Drainage. Within hours." },
+  { q: "How Do I Pay?", a: "Cash, visa, mastercard, debit/credit and bank transfer." },
+  { q: "Do you offer emergency plumbing services?", a: "Yes, 24/7 emergency plumbing in Southampton and surrounding areas." },
+  { q: "What is powerflushing and do I need it?", a: "Removes sludge, rust, debris from central heating. Improves efficiency, reduces bills, extends boiler life." },
+  { q: "Do you offer free quotes?", a: "Yes, free no-obligation quotes for all services." },
+];
+---
+
+<section id="faqs" class="bg-brand-primary relative py-24 lg:py-32 overflow-hidden">
+  <!-- SVG curve at top -->
+  <div class="absolute top-0 left-0 right-0">
+    <svg viewBox="0 0 1440 50" fill="none" preserveAspectRatio="none" class="w-full h-[50px]">
+      <path d="M0 0 L0 20 Q720 50 1440 20 L1440 0 Z" fill="#FAF8F5"/>
+    </svg>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-14 reveal">
+      <span class="text-sm font-body tracking-[0.2em] uppercase text-brand-secondary/80 mb-4 block">Common Questions</span>
+      <h2 class="font-heading text-white leading-tight tracking-[-0.01em]" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;">
+        Frequently <em class="text-brand-secondary not-italic" style="font-style: italic; font-weight: 400;">Asked</em>
+      </h2>
+    </div>
+
+    <!-- FAQ accordion -->
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <div class={`faq-item reveal group`} style={`transition-delay: ${i * 80}ms`}>
+          <button class="faq-trigger w-full text-left flex items-center justify-between p-5 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] hover:border-brand-secondary/20 transition-all duration-300">
+            <span class="font-heading text-white text-base font-medium pr-4">{faq.q}</span>
+            <svg class="faq-chevron w-5 h-5 text-brand-secondary flex-shrink-0 transition-transform duration-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="faq-content overflow-hidden transition-all duration-500 ease-out">
+            <div class="px-5 pb-5 pt-3">
+              <p class="font-body text-white/60 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- SVG curve to next section -->
+  <div class="absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 50" fill="none" preserveAspectRatio="none" class="w-full h-[50px]">
+      <path d="M0 50 L0 30 Q720 0 1440 30 L1440 50 Z" fill="#0F1923"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .faq-content {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .faq-item.open .faq-content {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-item.open .faq-trigger {
+    @apply bg-white/[0.08] border-brand-secondary/20;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .faq-item.open .faq-content > div {
+    @apply bg-white/[0.04] border-x border-b border-white/[0.06];
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+</style>

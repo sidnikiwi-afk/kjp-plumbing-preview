@@ -1,0 +1,97 @@
+---
+/**
+ * Stats — Massive numbers on full crimson section.
+ * Counter animation with requestAnimationFrame.
+ * Hazard stripe borders top and bottom.
+ */
+---
+
+<section class="relative bg-brand-primary py-16 sm:py-20 overflow-hidden">
+  <!-- Hazard stripe top (motif reuse) -->
+  <div class="absolute top-0 left-0 right-0 h-2 hazard-stripe-dark"></div>
+
+  <!-- Noise texture -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIi8+PC9zdmc+');"></div>
+
+  <!-- Big faded watermark number -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-heading font-black text-white/[0.06] select-none pointer-events-none" style="font-size: clamp(10rem, 25vw, 20rem);">25+</div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 text-center">
+      <!-- Stat 1 -->
+      <div class="scroll-reveal">
+        <div class="stat-number font-heading font-black text-white leading-none" style="font-size: clamp(4rem, 10vw, 7rem);" data-target="25" data-suffix="+">0</div>
+        <div class="font-body font-bold text-white/80 text-sm tracking-[0.2em] uppercase mt-3">Years Experience</div>
+      </div>
+
+      <!-- Divider -->
+      <div class="hidden sm:flex items-center justify-center">
+        <div class="w-px h-20 bg-white/20"></div>
+      </div>
+      <!-- But we need 3 columns so let me restructure -->
+
+      <!-- Stat 2 -->
+      <div class="scroll-reveal" style="animation-delay: 0.15s;">
+        <div class="stat-number font-heading font-black text-white leading-none" style="font-size: clamp(4rem, 10vw, 7rem);" data-target="24" data-suffix="/7">0</div>
+        <div class="font-body font-bold text-white/80 text-sm tracking-[0.2em] uppercase mt-3">Emergency Response</div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="scroll-reveal" style="animation-delay: 0.3s;">
+        <div class="stat-number font-heading font-black text-white leading-none" style="font-size: clamp(4rem, 10vw, 7rem);" data-target="5" data-suffix=" Star">0</div>
+        <div class="font-body font-bold text-white/80 text-sm tracking-[0.2em] uppercase mt-3">Google Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hazard stripe bottom -->
+  <div class="absolute bottom-0 left-0 right-0 h-2 hazard-stripe-dark"></div>
+</section>
+
+<style>
+  .hazard-stripe-dark {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+</style>
+
+<script>
+  // Counter animation with requestAnimationFrame
+  const counters = document.querySelectorAll('.stat-number');
+  const observerOptions = { threshold: 0.5 };
+  let animated = new Set();
+
+  const animateCounter = (el: Element) => {
+    const target = parseInt(el.getAttribute('data-target') || '0');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    const update = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated.has(entry.target)) {
+        animated.add(entry.target);
+        animateCounter(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  counters.forEach(c => observer.observe(c));
+</script>

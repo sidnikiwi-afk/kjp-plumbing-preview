@@ -1,0 +1,87 @@
+---
+---
+<section id="contact" class="relative py-24 md:py-32 bg-brand-secondary overflow-hidden">
+  <!-- Blueprint grid on dark -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.04]" style="background-image: linear-gradient(rgba(37,99,235,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.5) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+  <!-- Crosshair -->
+  <div class="absolute top-12 right-16 hidden lg:block opacity-10">
+    <div class="w-10 h-10 relative">
+      <div class="absolute top-0 left-1/2 w-px h-full bg-brand-primary"></div>
+      <div class="absolute top-1/2 left-0 h-px w-full bg-brand-primary"></div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <!-- Left: Info -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-8 bg-brand-primary"></div>
+          <span class="font-mono text-xs tracking-[0.2em] uppercase text-brand-primary font-medium">Get In Touch</span>
+        </div>
+        <h2 class="font-heading font-bold text-white tracking-tight leading-tight mb-6" style="font-size: clamp(2rem, 4vw, 3rem);">Request a Free Quote</h2>
+        <p class="text-white/60 text-base leading-relaxed mb-10 max-w-md">Fill in the form and we'll get back to you as soon as possible. For emergencies, call us directly.</p>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/40 uppercase tracking-wider font-mono mb-0.5">Phone</div>
+              <a href="tel:02381112994" class="font-mono text-white font-bold text-lg hover:text-brand-primary transition-colors">02381 11 2994</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/40 uppercase tracking-wider font-mono mb-0.5">Email</div>
+              <a href="mailto:kyle@kjp-plumbing-southampton.co.uk" class="text-white font-medium text-sm hover:text-brand-primary transition-colors">kyle@kjp-plumbing-southampton.co.uk</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/40 uppercase tracking-wider font-mono mb-0.5">Address</div>
+              <span class="text-white/80 text-sm">4 Broadleaf Close, Dibden Purlieu, Southampton SO45 4AY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <form class="space-y-5">
+          <div>
+            <label class="block text-xs text-white/40 uppercase tracking-wider font-mono mb-2">Your Name</label>
+            <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-primary/50 focus:ring-1 focus:ring-brand-primary/20 transition-all" placeholder="John Smith" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs text-white/40 uppercase tracking-wider font-mono mb-2">Phone</label>
+              <input type="tel" name="phone" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-primary/50 focus:ring-1 focus:ring-brand-primary/20 transition-all" placeholder="07XXX XXXXXX" />
+            </div>
+            <div>
+              <label class="block text-xs text-white/40 uppercase tracking-wider font-mono mb-2">Postcode</label>
+              <input type="text" name="postcode" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-primary/50 focus:ring-1 focus:ring-brand-primary/20 transition-all" placeholder="SO45" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-white/40 uppercase tracking-wider font-mono mb-2">How Can We Help?</label>
+            <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-primary/50 focus:ring-1 focus:ring-brand-primary/20 transition-all resize-none" placeholder="Describe your plumbing issue..."></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brand-accent text-brand-secondary font-bold py-3.5 rounded-full text-sm tracking-wide hover:scale-[1.02] hover:shadow-lg hover:shadow-brand-accent/25 transition-all duration-200">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

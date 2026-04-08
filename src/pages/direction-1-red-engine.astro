@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-1/Nav.astro';
+import Hero from '../components/direction-1/Hero.astro';
+import Services from '../components/direction-1/Services.astro';
+import Stats from '../components/direction-1/Stats.astro';
+import Gallery from '../components/direction-1/Gallery.astro';
+import Testimonials from '../components/direction-1/Testimonials.astro';
+import FAQ from '../components/direction-1/FAQ.astro';
+import Contact from '../components/direction-1/Contact.astro';
+import Footer from '../components/direction-1/Footer.astro';
+import MobileCTA from '../components/direction-1/MobileCTA.astro';
+---
+
+<Layout title="Red Engine — KJP Plumbing & Heating" description="Professional Plumbing & Heating Services & Emergency Plumber in Southampton & The Local Surrounding Areas. 25+ years experience. Call 02381 11 2994.">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #C62828;
+      --color-brand-secondary: #1E1E2A;
+      --color-brand-accent:    #F5F5F0;
+      --color-brand-bg:        #FAFAF7;
+      --color-brand-surface:   #F0F0EB;
+      --color-brand-text:      #1A1A1A;
+      --color-brand-muted:     #6B6B6B;
+      --font-heading: 'Archivo Variable', Impact, sans-serif;
+      --font-body:    'Manrope Variable', system-ui, sans-serif;
+    }
+
+    /* Scroll reveal animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection color */
+    ::selection {
+      background: #C62828;
+      color: white;
+    }
+  </style>
+
+  <Nav />
+  <Hero />
+  <Services />
+  <Stats />
+  <Gallery />
+  <Testimonials />
+  <FAQ />
+  <Contact />
+  <Footer />
+  <MobileCTA />
+
+  <script is:inline>
+    // Scroll reveal observer
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+</Layout>

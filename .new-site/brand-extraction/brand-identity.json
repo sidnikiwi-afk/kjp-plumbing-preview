@@ -1,0 +1,37 @@
+{
+  "url": "https://kjp-plumbing-southampton.co.uk",
+  "css_variables": {
+    "--button-font-size-value": "0.9",
+    "--solidHeaderBackgroundColor": "hsla(var(--white-hsl), 1)",
+    "--section-divider-stroke-color": "hsla(var(--black-hsl), 1)"
+  },
+  "colors": [
+    "#0e0e0e",
+    "#1e2130",
+    "#272727",
+    "#bd0000",
+    "#c32d38",
+    "#cc3b3b",
+    "#db3642",
+    "#e99292"
+  ],
+  "fonts": [
+    "Manrope",
+    "Nunito Sans"
+  ],
+  "google_fonts": [
+    "Nunito Sans"
+  ],
+  "logos": [
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/a5079371-a34d-47ac-a9f1-6652accbffc5/JKP+LOGO+TRANSPARENT.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/aa5e734a-6684-4caf-919c-aed260ff8c6a/JKP+LOGO+TRANSPARENT.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/a5079371-a34d-47ac-a9f1-6652accbffc5/JKP+LOGO+TRANSPARENT.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/aa5e734a-6684-4caf-919c-aed260ff8c6a/JKP+LOGO+TRANSPARENT.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/e0c96c83-2323-434f-a92c-a0b0e187cefd/myworkmanlogo.png",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/1c783836-bb9c-4bc6-acb5-52aa1fa294a6/provenexpert-logo-with-claim.png",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/292c62fd-1657-4a1a-a3ea-feedb762e8da/UK-Enterprise-Awards-Logo.png",
+    "https://images.squarespace-cdn.com/content/v1/673136378f388c5087380a87/1011272c-931d-4840-9546-ea508c3082dd/favicon.ico",
+    "http://static1.squarespace.com/static/673136378f388c5087380a87/t/6744f48796dca54249046176/1732572295744/JKP+LOGO+TRANSPARENT.png?format=1500w"
+  ],
+  "logo_downloaded": "/Users/saeed/Library/CloudStorage/GoogleDrive-sidni.kiwi@gmail.com/My Drive/Work/.new-site/brand-extraction/logo.webp"
+}

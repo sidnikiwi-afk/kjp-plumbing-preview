@@ -1,0 +1,44 @@
+---
+/**
+ * Gallery — Bathroom installation photos. Breaks the grid with
+ * overlapping layout and angular clips.
+ */
+---
+
+<section class="relative bg-brand-surface py-20 sm:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text side — offset left -->
+      <div class="scroll-reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-0.5 bg-brand-primary"></div>
+          <span class="text-brand-primary font-body font-bold text-xs tracking-[0.25em] uppercase">Our Work</span>
+        </div>
+        <h2 class="font-heading font-black text-brand-text uppercase leading-[0.95] tracking-tight mb-6" style="font-size: clamp(2rem, 5vw, 3rem);">
+          Bathroom<br />Installations
+        </h2>
+        <p class="text-brand-muted font-body text-base leading-relaxed max-w-md mb-8">
+          From complete bathroom refits to shower rooms and ensuites. Professional tiling, plumbing, and fitting throughout Southampton.
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-red-700 text-white px-6 py-3 font-heading font-black text-sm tracking-wider uppercase transition-all duration-300 hover:translate-y-[-2px]" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);">
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Photos side — overlapping grid (grid-breaking moment) -->
+      <div class="relative h-[400px] sm:h-[500px] scroll-reveal" style="animation-delay: 0.2s;">
+        <div class="absolute top-0 right-0 w-[65%] h-[65%] overflow-hidden shadow-2xl z-20 gallery-img" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 95%);">
+          <img src="/images/redesign/image-10.jpg" alt="Modern bathroom design and installations in Southampton" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+        </div>
+        <div class="absolute bottom-0 left-0 w-[55%] h-[55%] overflow-hidden shadow-2xl z-10 gallery-img" style="clip-path: polygon(5% 5%, 100% 0, 95% 100%, 0 100%);">
+          <img src="/images/redesign/image-11.jpg" alt="Beautiful bathroom installation by bathroom fitters in Southampton" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+        </div>
+        <div class="absolute top-[30%] left-[20%] w-[45%] h-[45%] overflow-hidden shadow-2xl z-30 gallery-img" style="clip-path: polygon(3% 0, 97% 3%, 100% 100%, 0 97%);">
+          <img src="/images/redesign/image-12.jpg" alt="Lovely shower room install by our bathroom fitter guys" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+        </div>
+        <!-- Red accent block behind -->
+        <div class="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-brand-primary/15 -z-0"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+/**
+ * Testimonials — 6 real Google reviews on cream background.
+ * Asymmetric 2-column masonry-style layout. Quote marks as decoration.
+ */
+const reviews = [
+  { text: "Excellent work carried out by these guys, very happy with how quickly everything was fixed and back to normal.", author: "Lyn Gardner", location: "Sholing" },
+  { text: "Fantastic service from start to finish! I booked KJP Plumbing for a powerflush service in Southampton and the difference it made to my heating system was incredible. Kyle also fixed a long-standing radiator issue on the spot.", author: "Sidney Hanson", location: "Hythe" },
+  { text: "Would recommend to all my friends 100%. Came out to an emergency early hours and couldn't be happier with the outcome.", author: "Craig Teal", location: "Totton" },
+  { text: "The quality of workmanship he does is always excellent. He works professionally and very reliable.", author: "Roi Rozano Gammad", location: "" },
+  { text: "Would HIGHLY recommend Kyle! Great and quick communication from the start, explained everything that needed to be done and very reasonable priced.", author: "Kerry P", location: "" },
+  { text: "Highly recommend KJP Plumbing & Heating. I had a leaking shower into the downstairs ceiling and found KJP from several recommendations.", author: "Charlie S", location: "" },
+];
+---
+
+<section id="reviews" class="relative bg-brand-bg py-20 sm:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-8 h-0.5 bg-brand-primary"></div>
+        <span class="text-brand-primary font-body font-bold text-xs tracking-[0.25em] uppercase">Testimonials</span>
+        <div class="w-8 h-0.5 bg-brand-primary"></div>
+      </div>
+      <h2 class="font-heading font-black text-brand-text uppercase leading-[0.95] tracking-tight" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+        What Our Customers Say
+      </h2>
+    </div>
+
+    <!-- Reviews grid — asymmetric masonry -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {reviews.map((review, i) => (
+        <div
+          class="review-card group relative bg-white border-l-4 border-brand-primary p-6 sm:p-8 transition-all duration-300 hover:shadow-lg scroll-reveal"
+          style={`animation-delay: ${i * 0.1}s;`}
+        >
+          <!-- Big quote mark -->
+          <div class="absolute top-4 right-6 font-heading font-black text-brand-primary/10 leading-none select-none" style="font-size: 5rem;">"</div>
+
+          <!-- Stars -->
+          <div class="flex gap-0.5 mb-4">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <p class="text-brand-text font-body text-base leading-relaxed relative z-10 mb-6">"{review.text}"</p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand-primary/10 flex items-center justify-center font-heading font-black text-brand-primary text-sm">
+              {review.author.charAt(0)}
+            </div>
+            <div>
+              <div class="font-heading font-black text-brand-text text-sm uppercase tracking-wide">{review.author}</div>
+              {review.location && <div class="font-body text-brand-muted text-xs">{review.location}</div>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

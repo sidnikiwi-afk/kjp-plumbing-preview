@@ -1,0 +1,92 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "direction-1-red-engine",
+      "name": "Red Engine",
+      "description": "Bold, industrial, high-energy. Full-width hero with plumber image bleeding edge-to-edge, thick red banner headline. Services as icon cards on dark graphite band. Sharp edges, no rounded corners. Massive stat numbers. Sticky emergency CTA on mobile.",
+      "rationale": "Kyle does emergency callouts and powerflushing — this direction feels urgent, confident, and no-nonsense. The red carries from his current brand.",
+      "palette": {
+        "primary": "#C62828",
+        "secondary": "#1E1E2A",
+        "accent": "#F5F5F0",
+        "bg": "#FAFAF7",
+        "surface": "#F0F0EB",
+        "text": "#1A1A1A",
+        "muted": "#6B6B6B"
+      },
+      "fonts": {
+        "heading": { "family": "Archivo Black", "package": "archivo", "fallback": "Impact, sans-serif" },
+        "body": { "family": "Manrope", "package": "manrope", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense",
+        "typography": "heavy-display + humanist-sans",
+        "hero": "full-bleed-image",
+        "visual_metaphor": "industrial",
+        "shape_language": "sharp-edges",
+        "elevation": "flat",
+        "proof_style": "statistics-forward"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "direction-2-copper-pipe",
+      "name": "Copper Pipe",
+      "description": "Warm and editorial. Split-screen hero with headline on cream, photo on right. Alternating cream/navy sections. Rounded cards with subtle shadows. Horizontal testimonial carousel. Serif headings for authority, copper accents reference the trade.",
+      "rationale": "Positions KJP as the experienced, trusted local choice. Copper references plumbing fittings. Editorial style makes reviews and credentials feel substantial.",
+      "palette": {
+        "primary": "#0F1923",
+        "secondary": "#C67D4A",
+        "accent": "#5B7C99",
+        "bg": "#FAF8F5",
+        "surface": "#F0EDE8",
+        "text": "#1A1A1A",
+        "muted": "#7A7A7A"
+      },
+      "fonts": {
+        "heading": { "family": "Literata", "package": "literata", "fallback": "Georgia, serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious",
+        "typography": "editorial-serif + geometric-sans",
+        "hero": "split-screen",
+        "visual_metaphor": "editorial",
+        "shape_language": "rounded-corners",
+        "elevation": "subtle-shadows",
+        "proof_style": "testimonials-forward"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "direction-3-blueprint",
+      "name": "Blueprint",
+      "description": "Clean, modern, tech-forward. Typographic hero with massive headline and phone number, subtle grid-line background. Services in tight 2x3 grid with hover reveals. Pill-shaped buttons, generous padding. Trust badges as compact logo row. Electric blue with lime CTA accents.",
+      "rationale": "Modern tradesmen need modern sites. This direction makes KJP stand out from every other plumber in Southampton running a generic template.",
+      "palette": {
+        "primary": "#2563EB",
+        "secondary": "#1A1A2E",
+        "accent": "#84CC16",
+        "bg": "#FFFFFF",
+        "surface": "#F8FAFC",
+        "text": "#0F172A",
+        "muted": "#64748B"
+      },
+      "fonts": {
+        "heading": { "family": "Space Grotesk", "package": "space-grotesk", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "geometric-sans + neutral-sans",
+        "hero": "typographic",
+        "visual_metaphor": "minimal-tech",
+        "shape_language": "pill-shapes",
+        "elevation": "flat",
+        "proof_style": "logo-wall"
+      }
+    }
+  ],
+  "total": 3
+}

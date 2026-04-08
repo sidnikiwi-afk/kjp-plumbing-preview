@@ -1,0 +1,91 @@
+---
+const services = [
+  { name: 'Bathroom Installations', icon: '/images/redesign/image-02.png', desc: 'Complete bathroom design, fitting, and renovation.' },
+  { name: 'Power Flushing', icon: '/images/redesign/image-03.png', desc: 'Remove sludge and debris. Improve efficiency, cut bills.' },
+  { name: 'Plumbing & Heating', icon: '/images/redesign/image-04.png', desc: 'Full range of plumbing and central heating services.' },
+  { name: 'Hot Water & Heating', icon: '/images/redesign/image-05.png', desc: 'Boiler repairs, cylinder replacements, heating upgrades.' },
+  { name: 'Emergency Plumbing', icon: '/images/redesign/image-06.png', desc: '24/7 callouts across Southampton and surrounding areas.' },
+  { name: 'Tiling', icon: null, desc: 'Professional wall and floor tiling for kitchens and bathrooms.' },
+];
+---
+<section id="services" class="relative py-24 md:py-32 bg-brand-surface">
+  <!-- Blueprint grid accent -->
+  <div class="absolute inset-0 blueprint-dot opacity-[0.03] pointer-events-none"></div>
+
+  <!-- Section measurement mark -->
+  <div class="absolute right-8 top-8 hidden lg:flex items-center gap-2 opacity-15">
+    <span class="font-mono text-[10px] text-brand-primary tracking-widest">SEC.02</span>
+    <div class="h-px w-12 bg-brand-primary"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-px w-8 bg-brand-primary"></div>
+      <span class="font-mono text-xs tracking-[0.2em] uppercase text-brand-primary font-medium">What We Do</span>
+    </div>
+    <h2 class="font-heading font-bold text-brand-text tracking-tight leading-tight mb-16" style="font-size: clamp(2rem, 4vw, 3rem);">Our Services</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {services.map((s, i) => (
+        <div class="service-card group relative bg-white rounded-2xl p-6 border border-brand-primary/5 hover:border-brand-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 cursor-default"
+             style={`--card-delay: ${i * 0.08}s`}>
+          <!-- Blueprint corner marks -->
+          <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-brand-primary/10 rounded-tl-sm"></div>
+          <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-brand-primary/10 rounded-br-sm"></div>
+
+          <div class="flex items-start gap-4">
+            {s.icon ? (
+              <div class="shrink-0 w-14 h-14 rounded-xl bg-brand-primary/5 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors">
+                <img src={s.icon} alt={s.name} class="w-9 h-9 object-contain" />
+              </div>
+            ) : (
+              <div class="shrink-0 w-14 h-14 rounded-xl bg-brand-primary/5 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors">
+                <svg class="w-7 h-7 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/></svg>
+              </div>
+            )}
+            <div class="min-w-0">
+              <h3 class="font-heading font-semibold text-brand-text text-base mb-1">{s.name}</h3>
+              <p class="text-brand-muted text-sm leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">{s.desc}</p>
+            </div>
+          </div>
+
+          {s.name === 'Emergency Plumbing' && (
+            <span class="absolute top-4 right-4 bg-brand-accent/15 text-brand-accent text-[10px] font-bold tracking-wider uppercase py-1 px-2.5 rounded-full">24/7</span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .blueprint-dot {
+    background-image: radial-gradient(var(--color-brand-primary) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .service-card {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .service-card.visible {
+    animation: card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--card-delay);
+  }
+
+  @keyframes card-in {
+    0% { opacity: 0; transform: translateY(16px); }
+    70% { transform: translateY(-2px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.service-card').forEach(c => observer.observe(c));
+</script>
